@@ -49,7 +49,8 @@
             x-data="{
                 selected: @json($getItem[0]['id']),
                 selectedPrice: @json($getItem[0]['pricing']['price']),
-                ogPrice: @json($getItem[0]['pricing']['original_price'])
+                ogPrice: @json($getItem[0]['pricing']['original_price']),
+                period: '{{$getItem[0]['slug']}}',
             }"
         >
             <h5 class="text-[28px] text-center text-[#2E425F] font-medium mb-5 lg:mb-6">Select your plan</h5>
@@ -60,8 +61,8 @@
                 <button class="bg-[#3A5BA9] h-[56px] w-[360px] rounded-[10px] text-white text-lg font-bold" type="button">Order now</button>
             </div>
             <p class="text-[#949494] text-xs mt-5 lg:mt-6">
-                By clicking Get my plan, I agree to pay €<span x-text="selectedPrice.toLocaleString('de-DE', { minimumFractionDigits: 2, maximumFractionDigits: 2 })"></span> for my plan and that if I do not cancel before the end of the 4-week introductory plan,
-                Happyo will automatically charge my payment method the regular price €<span x-text="ogPrice.toLocaleString('de-DE', { minimumFractionDigits: 2, maximumFractionDigits: 2 })"></span> every 4 weeks thereafter until I cancel.
+                By clicking Get my plan, I agree to pay €<span x-text="selectedPrice.toLocaleString('de-DE', { minimumFractionDigits: 2, maximumFractionDigits: 2 })"></span> for my plan and that if I do not cancel before the end of the <span x-text="window.translations.period[period]"></span> introductory plan,
+                Happyo will automatically charge my payment method the regular price €<span x-text="ogPrice.toLocaleString('de-DE', { minimumFractionDigits: 2, maximumFractionDigits: 2 })"></span> every <span x-text="window.translations.period[period]"></span> thereafter until I cancel.
                 I can cancel by contacting <a class="text-[#3A5BA9] decoration-solid underline" href="mailto:support@gethappyo.co">support@gethappyo.co</a>
             </p>
             <div class="mt-5 lg:mt-6 p-4 bg-white rounded-[10px] flex gap-6 text-xs leading-[16px] text-[#1B1B1F] justify-between items-center shadow-[0px_1px_2px_0px_rgba(0,0,0,0.30),0px_1px_3px_1px_rgba(0,0,0,0.15)]">

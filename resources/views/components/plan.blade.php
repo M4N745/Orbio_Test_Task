@@ -5,6 +5,7 @@
         selected = @json($product['id']);
         selectedPrice = @json($product['pricing']['price']);
         ogPrice = @json($product['pricing']['original_price']);
+        period = '{{$product['slug']}}';
     "
     :class="selected === {{ $product['id'] }} ? 'border-2 border-[#1FA37E]' : 'border border-[#ADB1B9]'"
     class="cursor-pointer flex items-center gap-2 py-4 px-[15px] bg-white rounded-2xl"
